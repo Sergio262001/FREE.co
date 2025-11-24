@@ -13,28 +13,28 @@ function App() {
   const shirts = [
     {
       id: 1,
-      title: "Camisa básica blanca",
+      title: "Camisa Blessd blanca",
       price: 25,
       category: "Básicas",
       img: Camiseta1,
     },
     {
       id: 2,
-      title: "Camisa cuadros azul",
+      title: "Camisa negra Ptblling",
       price: 32,
       category: "Casual",
       img: Camiseta2,
     },
     {
       id: 3,
-      title: "Camisa negra oversize",
+      title: "Camisa blanca Dairo oversize",
       price: 29,
       category: "Street",
       img: Camiseta3,
     },
     {
       id: 4,
-      title: "Camisa lino beige",
+      title: "Camisa Gang beige",
       price: 40,
       category: "Verano",
       img: Camiseta4,
