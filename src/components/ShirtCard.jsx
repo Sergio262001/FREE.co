@@ -1,15 +1,19 @@
-import SeeMoreButton from "./SeeMoreButton";
+import { Link } from "react-router-dom";
 
-function ShirtCard({ title, price, category, img }) {
+function ShirtCard({ shirt }) {
   return (
     <article className="shirt-card">
-      <img src={img} alt={title} className="shirt-image" />
+      <img className="shirt-img" src={shirt.img} alt={shirt.title} />
 
-      <h3 className="shirt-title">{title}</h3>
-      <p className="shirt-category">{category}</p>
-      <p className="shirt-price">${price}</p>
+      <div className="shirt-info">
+        <h3 className="shirt-title">{shirt.title}</h3>
+        <p className="shirt-price">${shirt.price}</p>
+        <p className="shirt-category">{shirt.category}</p>
 
-      <SeeMoreButton onClick={() => alert(`Detalles de: ${title}`)} />
+        <Link className="shirt-link" to={`/item/${shirt.id}`}>
+          Ver detalle
+        </Link>
+      </div>
     </article>
   );
 }

@@ -1,10 +1,10 @@
 function CartWidget() {
-    return (
-      <button className="cart-widget">
-        <span className="cart-icon">🛒</span>
-        <span className="cart-number">0</span>
-      </button>
-    );
-  }
-  
-  export default CartWidget;
+  return (
+    <div className="cart">
+      <span className="cart-icon">🛒</span>
+      <span className="cart-badge">0</span>
+    </div>
+  );
+}
+
+export default CartWidget;
