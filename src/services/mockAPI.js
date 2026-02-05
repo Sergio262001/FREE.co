@@ -17,6 +17,5 @@ export async function getProducts(categoryId) {
 export async function getProductById(itemId) {
   await wait(700);
 
-  const found = products.find((p) => p.id === Number(itemId));
-  return found; // puede ser undefined si no existe
+  return products.find((p) => p.id === itemId) || null;
 }

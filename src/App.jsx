@@ -1,8 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
 import ItemListContainer from "./components/ItemListContainer.jsx";
-import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
+import ItemDetailContainer from "./components/ItemDetailcontainer.jsx";
 import NotFound from "./components/NotFound.jsx";
+import Cart from "./components/Cart.jsx";
+import CheckoutForm from "./components/CheckoutForm.jsx";
+
 
 function App() {
   return (
@@ -13,23 +16,39 @@ function App() {
         {/* Catálogo principal */}
         <Route
           path="/"
-          element={<ItemListContainer greeting="Bienvenido a la colección de camisas de Sergio" />}
+          element={
+            <ItemListContainer greeting="Bienvenido a la colección de camisas de Sergio" />
+          }
         />
 
-        {/* Catálogo filtrado por categoría (ruta dinámica) */}
+        {/* Catálogo por categoría */}
         <Route
           path="/category/:categoryId"
           element={<ItemListContainer greeting="Filtra y elige tu estilo" />}
         />
 
-        {/* Detalle de producto (ruta dinámica) */}
+        {/* Detalle */}
         <Route path="/item/:itemId" element={<ItemDetailContainer />} />
 
-        {/* 404 */}
+        {/* 🛒 CARRITO (DEBE IR ANTES DEL *) */}
+        <Route path="/cart" element={<Cart />} />
+
+        {/* 🛒 CHECKOUT */}
+       <Route path="/checkout" element={<CheckoutForm />} />
+
+
+
+        {/* 404 SIEMPRE AL FINAL */}
         <Route path="*" element={<NotFound />} />
+
+      
+
+
       </Routes>
     </>
   );
 }
 
 export default App;
+
+

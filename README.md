@@ -1,16 +1,22 @@
-# React + Vite
+# Camisas Sergio — Proyecto React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto corresponde al desarrollo de una tienda online básica de camisetas oversize,
+realizada como entrega académica para CODERHOUSE utilizando React y Vite.
 
-Currently, two official plugins are available:
+La aplicación permite visualizar un catálogo de productos, acceder al detalle de cada uno
+mediante rutas dinámicas y agregar productos a un carrito de compras manejado con Context API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Los productos se obtienen desde una base de datos en la nube utilizando Firebase Firestore,
+simulando el funcionamiento real de un e-commerce.
 
-## React Compiler
+## Tecnologías utilizadas
+- React
+- Vite
+- React Router DOM
+- Firebase Firestore
+- Context API
+- CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Autor
+Sergio Gil  
+Proyecto académico — Curso de React

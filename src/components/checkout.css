@@ -1,0 +1,107 @@
+/* ===== CHECKOUT ===== */
+
+.checkout-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* ===== FORM ===== */
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkout-form input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.checkout-form input:focus {
+  outline: none;
+  border-color: #111;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== BUTTON ===== */
+
+.checkout-form button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #111;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.checkout-form button:hover {
+  background-color: #000;
+}
+
+.checkout-form button:active {
+  transform: scale(0.97);
+}
+
+.checkout-form button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* ===== SUCCESS ===== */
+
+.checkout-success {
+  text-align: center;
+}
+
+.checkout-success strong {
+  display: block;
+  margin: 12px 0;
+  font-size: 16px;
+  color: #111;
+}
+
+.checkout-success a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+.checkout-success a:hover {
+  text-decoration: underline;
+}
+
+/* ===== EMPTY CART ===== */
+
+.checkout-empty {
+  text-align: center;
+}
+
+.checkout-empty a {
+  color: #111;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.checkout-empty a:hover {
+  text-decoration: underline;
+}

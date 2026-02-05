@@ -1,10 +1,18 @@
-function CartWidget() {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
+
+export default function CartWidget() {
+  const { totalUnits } = useContext(CartContext);
+
   return (
-    <div className="cart">
-      <span className="cart-icon">🛒</span>
-      <span className="cart-badge">0</span>
-    </div>
+    <Link to="/cart" style={{ position: "relative" }}>
+      🛒
+      {totalUnits > 0 && (
+        <span style={{ marginLeft: 6, fontWeight: "bold" }}>
+          {totalUnits}
+        </span>
+      )}
+    </Link>
   );
 }
-
-export default CartWidget;

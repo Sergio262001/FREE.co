@@ -3,11 +3,18 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --bg-dark: #0f172a;     /* azul oscuro elegante */
+  --bg-card: #ffffff;
+  --text-dark: #020617;
+  --text-soft: #475569;
+  --border-soft: #e5e7eb;
 }
 
 body {
   margin: 0;
-  background-color: #f3f4f6;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 a {
@@ -18,6 +25,7 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease;
 }
 
 /* --- navbar --- */
@@ -26,16 +34,18 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 14px 18px;
-  background: white;
+  padding: 16px 20px;
+  background: var(--bg-card);
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .navbar-logo {
   margin: 0;
   font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
 }
 
 .navbar-links {
@@ -46,11 +56,17 @@ button {
   margin: 0;
 }
 
-/* mini hover para NAVEGACION */
-.navbar-links a:hover {
-  opacity: 0.1;
+.navbar-links a {
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
+.navbar-links a:hover {
+  background: #f1f5f9;
+}
+
+/* carrito */
 .cart {
   display: flex;
   align-items: center;
@@ -58,39 +74,54 @@ button {
 }
 
 .cart-badge {
-  background: #111827;
+  background: var(--text-dark);
   color: white;
   border-radius: 999px;
   padding: 2px 8px;
   font-size: 12px;
+  font-weight: 700;
 }
 
 /* --- list --- */
 .item-list-container {
-  padding: 18px;
+  padding: 22px;
 }
 
 .item-list-header h2 {
   margin: 0 0 6px;
+  color: white;
+  font-weight: 800;
+}
+
+.item-list-header p {
+  margin: 0;
+  color: #cbd5f5;
 }
 
 .loading {
   padding: 18px;
   opacity: 0.7;
+  color: #e5e7eb;
 }
 
 .shirts-grid {
-  margin-top: 16px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .shirt-card {
-  background: white;
-  border-radius: 14px;
+  background: var(--bg-card);
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shirt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .shirt-img {
@@ -101,22 +132,23 @@ button {
 }
 
 .shirt-info {
-  padding: 12px;
+  padding: 14px;
 }
 
 .shirt-title {
   margin: 0 0 6px;
   font-size: 16px;
+  font-weight: 700;
 }
 
 .shirt-price {
   margin: 0;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .shirt-category {
   margin: 6px 0 10px;
-  opacity: 0.7;
+  color: var(--text-soft);
   font-size: 13px;
 }
 
@@ -124,15 +156,19 @@ button {
   font-weight: 600;
 }
 
+.shirt-link:hover {
+  text-decoration: underline;
+}
+
 /* --- detail --- */
 .detail-container {
-  padding: 18px;
+  padding: 22px;
 }
 
 .detail-card {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
@@ -146,27 +182,30 @@ button {
 }
 
 .detail-info {
-  padding: 14px;
+  padding: 18px;
 }
 
 .detail-title {
   margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
 }
 
 .detail-desc {
-  margin: 0 0 10px;
-  opacity: 0.8;
+  margin: 0 0 12px;
+  color: var(--text-soft);
 }
 
 .detail-price {
-  margin: 0 0 12px;
-  font-weight: 800;
+  margin: 0 0 14px;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 /* --- count --- */
 .count {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   max-width: 280px;
 }
 
@@ -177,29 +216,44 @@ button {
 }
 
 .count-controls button {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  background: white;
+  font-weight: 700;
+}
+
+.count-controls button:hover {
+  background: #f1f5f9;
 }
 
 .count-number {
   min-width: 24px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .count-add {
-  padding: 10px 12px;
+  padding: 12px;
   border: 0;
-  border-radius: 10px;
-  background: #111827;
+  border-radius: 12px;
+  background: var(--text-dark);
   color: white;
+  font-weight: 700;
+}
+
+.count-add:hover {
+  transform: translateY(-1px);
 }
 
 /* --- 404 --- */
 .notfound {
-  padding: 18px;
+  padding: 22px;
+  color: white;
 }
 
 .notfound-link {
-  font-weight: 700;
+  font-weight: 800;
+  text-decoration: underline;
 }

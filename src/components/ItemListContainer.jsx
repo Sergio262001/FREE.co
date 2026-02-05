@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProducts } from "../services/mockApi";
+import { getProducts } from "../services/firestore";
 import ItemList from "./ItemList.jsx";
 
 function ItemListContainer({ greeting }) {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+  setLoading(true);
 
-    getProducts(categoryId)
-      .then((data) => setProducts(data))
-      .finally(() => setLoading(false));
-  }, [categoryId]); // importante: depende de la URL
+  getProducts(categoryId)
+    .then((data) => {
+      console.log("🟢 Products data:", data);
+      setProducts(data);
+    })
+    .catch((err) => {
+      console.error("🔴 Error getProducts:", err);
+    })
+    .finally(() => setLoading(false));
+}, [categoryId]);
 
   return (
     <section className="item-list-container">
@@ -27,11 +34,9 @@ function ItemListContainer({ greeting }) {
         </p>
       </div>
 
-      {loading ? (
-        <p className="loading">Cargando productos...</p>
-      ) : (
-        <ItemList products={products} />
-      )}
+      {loading && <p className="loading">Cargando productos...</p>}
+      {!loading && error && <p className="loading">{error}</p>}
+      {!loading && !error && <ItemList products={products} />}
     </section>
   );
 }
