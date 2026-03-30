@@ -23,7 +23,21 @@ function ItemDetailContainer() {
           setError("Producto no encontrado.");
           setItem(null);
         } else {
-          setItem(data);
+          // --- DATOS DE PRUEBA (DUMMY) PARA DEMOSTRACIÓN ---
+          // Si el producto en Firebase no tiene 'images', le agregamos unas de prueba
+          const mockImages = [
+            data.img,
+            "https://picsum.photos/400/500?random=" + data.id + "1",
+            "https://picsum.photos/400/500?random=" + data.id + "2"
+          ];
+          // Si no tiene 'model3d', le ponemos el astronauta de prueba
+          const mockModel = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
+
+          setItem({
+            ...data,
+            images: data.images || mockImages,
+            model3d: data.model3d || mockModel
+          });
         }
       })
       .catch((e) => {

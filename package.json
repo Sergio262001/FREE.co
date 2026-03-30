@@ -3,9 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-
   "homepage": "https://sergio262001.github.io/RopaOversize",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,14 +11,14 @@
     "lint": "eslint .",
     "deploy": "npm run build && gh-pages -d dist"
   },
-
   "dependencies": {
-    "firebase": "^12.9.0",
+    "firebase": "^12.11.0",
+    "framer-motion": "^12.38.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-hot-toast": "^2.6.0",
     "react-router-dom": "^7.12.0"
   },
-
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.5",
@@ -29,8 +27,8 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.1.1",
     "globals": "^16.5.0",
-    "vite": "^7.2.4",
-    "gh-pages": "^6.1.1"
+    "vite": "^7.2.4"
   }
 }

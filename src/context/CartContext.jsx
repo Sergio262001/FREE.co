@@ -10,14 +10,16 @@ export function CartProvider({ children }) {
     const quantity = Number(qty);
 
     setCart((prev) => {
-      const exists = prev.find((p) => p.id === item.id);
+      const exists = prev.find((p) => p.id === item.id && p.size === item.size);
 
       // IMPORTANTÍSIMO: price numérico
       const cleanPrice = Number(item.price);
 
       if (exists) {
         return prev.map((p) =>
-          p.id === item.id ? { ...p, qty: p.qty + quantity, price: cleanPrice } : p
+          (p.id === item.id && p.size === item.size) 
+            ? { ...p, qty: p.qty + quantity, price: cleanPrice } 
+            : p
         );
       }
 
@@ -25,7 +27,7 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeItem = (id) => setCart((prev) => prev.filter((p) => p.id !== id));
+  const removeItem = (id, size) => setCart((prev) => prev.filter((p) => !(p.id === id && p.size === size)));
 
   const clearCart = () => setCart([]);
 

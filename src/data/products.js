@@ -10,7 +10,9 @@ export const products = [
     price: 25000,
     category: "colecciones",
     img: Camiseta1,
-    description: "Oversize, cómoda y fácil de combinar.",
+    images: [Camiseta1, Camiseta2, Camiseta3],
+    model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+    description: "Oversize, cómoda y fácil de combinar. (Con Vista 3D de demo)",
     stock: 8,
   },
   {
@@ -19,6 +21,7 @@ export const products = [
     price: 32000,
     category: "ofertas",
     img: Camiseta2,
+    images: [Camiseta2, Camiseta4],
     description: "Negra, estilo casual para cualquier plan.",
     stock: 5,
   },
