@@ -5,6 +5,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { PROMO_CONFIG } from "../config/promotions";
 import "./checkout.css";
 
 function CheckoutForm() {
@@ -30,9 +31,11 @@ function CheckoutForm() {
   }, [user]);
 
   const applyPromo = () => {
-    if (promoCode.trim().toUpperCase() === "OVERS10") {
-      setDiscount(0.10);
-      toast.success("¡Descuento de 10% aplicado!");
+    const code = promoCode.trim().toUpperCase();
+    if (PROMO_CONFIG.activeCoupons[code]) {
+      const discountVal = PROMO_CONFIG.activeCoupons[code];
+      setDiscount(discountVal);
+      toast.success(`¡Descuento de ${discountVal * 100}% aplicado!`);
     } else {
       setDiscount(0);
       toast.error("Código promocional inválido");
@@ -89,7 +92,7 @@ function CheckoutForm() {
           subtotal: totalPrice,
           iva: iva,
           shippingCost: shippingCost,
-          discountPercent: discount > 0 ? 10 : 0,
+          discountPercent: discount > 0 ? discount * 100 : 0,
           total: finalTotal,
           date: serverTimestamp(),
           paymentId: transaction.id,
@@ -148,16 +151,18 @@ function CheckoutForm() {
     <div className="checkout-container">
       <h2>Checkout Seguro</h2>
 
-      <div style={{ padding: "16px", background: "var(--bg-secondary)", marginBottom: "24px", display: "flex", gap: "8px" }}>
-        <input 
-          type="text" 
-          placeholder="Código de descuento (Ej: OVERS10)" 
-          value={promoCode} 
-          onChange={(e) => setPromoCode(e.target.value)} 
-          style={{ flex: 1, padding: "8px", border: "1px solid var(--border-light)", background: "var(--bg-primary)", color: "var(--text-primary)" }}
-        />
-        <button onClick={applyPromo} style={{ padding: "8px 16px", background: "var(--text-primary)", color: "var(--bg-primary)", border: "none", cursor: "pointer", fontWeight: "600", fontSize: "11px" }}>APLICAR</button>
-      </div>
+      {PROMO_CONFIG.couponsEnabled && (
+        <div style={{ padding: "16px", background: "var(--bg-secondary)", marginBottom: "24px", display: "flex", gap: "8px" }}>
+          <input 
+            type="text" 
+            placeholder="Código de descuento (Ej: BIENVENIDO20)" 
+            value={promoCode} 
+            onChange={(e) => setPromoCode(e.target.value)} 
+            style={{ flex: 1, padding: "8px", border: "1px solid var(--border-light)", background: "var(--bg-primary)", color: "var(--text-primary)" }}
+          />
+          <button onClick={applyPromo} style={{ padding: "8px 16px", background: "var(--text-primary)", color: "var(--bg-primary)", border: "none", cursor: "pointer", fontWeight: "600", fontSize: "11px" }}>APLICAR</button>
+        </div>
+      )}
 
       <form className="checkout-form" onSubmit={handleSubmit}>
         <h4 style={{ marginBottom: "-8px", marginTop: "8px" }}>Tus Datos</h4>
@@ -185,7 +190,7 @@ function CheckoutForm() {
           {discount > 0 && (
             <div style={{ display: "flex", justifyContent: "space-between", color: "green", fontSize: "14px", marginTop: "8px" }}>
               <span>Descuento Promocional:</span>
-              <span>-10%</span>
+              <span>-{discount * 100}%</span>
             </div>
           )}
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: "1.2rem", marginTop: "12px", paddingTop: "8px", borderTop: "1px solid var(--border-light)" }}>

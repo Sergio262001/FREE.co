@@ -12,10 +12,12 @@ import Collections from "./components/Collections.jsx";
 import { Toaster } from "react-hot-toast";
 
 import GlobalNav from "./components/GlobalNav.jsx";
+import PromoModal from "./components/PromoModal.jsx";
 
 function App() {
   return (
     <>
+      <PromoModal />
       <Toaster
         position="top-center"
         toastOptions={{
