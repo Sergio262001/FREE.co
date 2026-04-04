@@ -9,7 +9,7 @@ import { PROMO_CONFIG } from "../config/promotions";
 import "./checkout.css";
 
 function CheckoutForm() {
-  const { cart, totalPrice, clearCart } = useContext(CartContext);
+  const { cart, totalPrice, clearCart, discount, promoCode, setPromoCode, applyPromo } = useContext(CartContext);
   const { user } = useAuth();
 
   const [name, setName] = useState("");
@@ -17,10 +17,6 @@ function CheckoutForm() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  
-  const [promoCode, setPromoCode] = useState("");
-  const [discount, setDiscount] = useState(0); // 0 or 0.10
-
   const [orderId, setOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -29,18 +25,6 @@ function CheckoutForm() {
       setEmail(user.email);
     }
   }, [user]);
-
-  const applyPromo = () => {
-    const code = promoCode.trim().toUpperCase();
-    if (PROMO_CONFIG.activeCoupons[code]) {
-      const discountVal = PROMO_CONFIG.activeCoupons[code];
-      setDiscount(discountVal);
-      toast.success(`¡Descuento de ${discountVal * 100}% aplicado!`);
-    } else {
-      setDiscount(0);
-      toast.error("Código promocional inválido");
-    }
-  };
 
   const iva = totalPrice * 0.19;
   const shippingCost = 15000;
@@ -160,7 +144,7 @@ function CheckoutForm() {
             onChange={(e) => setPromoCode(e.target.value)} 
             style={{ flex: 1, padding: "8px", border: "1px solid var(--border-light)", background: "var(--bg-primary)", color: "var(--text-primary)" }}
           />
-          <button onClick={applyPromo} style={{ padding: "8px 16px", background: "var(--text-primary)", color: "var(--bg-primary)", border: "none", cursor: "pointer", fontWeight: "600", fontSize: "11px" }}>APLICAR</button>
+          <button onClick={() => applyPromo(promoCode)} style={{ padding: "8px 16px", background: "var(--text-primary)", color: "var(--bg-primary)", border: "none", cursor: "pointer", fontWeight: "600", fontSize: "11px" }}>APLICAR</button>
         </div>
       )}
 

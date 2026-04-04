@@ -1,10 +1,28 @@
 import { createContext, useMemo, useState } from "react";
+import { PROMO_CONFIG } from "../config/promotions";
+import toast from "react-hot-toast";
 
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]); 
   // item en cart: { id, title, price (number), img, qty, stock }
+
+  const [promoCode, setPromoCode] = useState("");
+  const [discount, setDiscount] = useState(0);
+
+  const applyPromo = (localCode) => {
+    const uppercaseCode = localCode.trim().toUpperCase();
+    if (PROMO_CONFIG.activeCoupons[uppercaseCode]) {
+      const discountVal = PROMO_CONFIG.activeCoupons[uppercaseCode];
+      setDiscount(discountVal);
+      setPromoCode(uppercaseCode);
+      toast.success(`¡Descuento de ${discountVal * 100}% aplicado!`);
+    } else {
+      setDiscount(0);
+      toast.error("Código promocional inválido");
+    }
+  };
 
   const addItem = (item, qty) => {
     const quantity = Number(qty);
@@ -57,6 +75,10 @@ export function CartProvider({ children }) {
         totalUnits,
         totalPrice,
         getItemSubtotal,
+        promoCode,
+        setPromoCode,
+        discount,
+        applyPromo,
       }}
     >
       {children}
