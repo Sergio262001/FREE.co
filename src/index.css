@@ -281,6 +281,9 @@ button {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+  .global-nav {
+    justify-content: center;
+  }
   .navbar {
     display: flex;
     padding: 16px 20px;

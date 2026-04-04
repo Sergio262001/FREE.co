@@ -4,7 +4,7 @@ export default function GlobalNav() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px", display: "flex", gap: "12px", alignItems: "center" }}>
+    <div className="global-nav" style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px", display: "flex", gap: "12px", alignItems: "center" }}>
       <button 
         onClick={() => navigate(-1)} 
         style={{ 
