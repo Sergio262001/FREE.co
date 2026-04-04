@@ -278,7 +278,18 @@ button {
 @media (max-width: 768px) {
   .navbar {
     padding: 16px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .navbar-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-links {
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
   .item-list-container {
     padding: 40px 20px;

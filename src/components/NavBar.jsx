@@ -24,7 +24,7 @@ function NavBar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={theme === "dark" ? "/logos/LG-BLANCO-SNFNDO-CORTO.png" : "/logos/LG-NEGRO-SNFNDO-CORTO.png"} alt="Logo" style={{ height: '128px', objectFit: 'contain' }} />
+          <img src={theme === "dark" ? "/logos/LG-BLANCO-SNFNDO-CORTO.png" : "/logos/LG-NEGRO-SNFNDO-CORTO.png"} alt="Logo" style={{ height: '110px', objectFit: 'contain' }} />
         </Link>
       </div>
 
