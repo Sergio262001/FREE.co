@@ -16,8 +16,8 @@ import GlobalNav from "./components/GlobalNav.jsx";
 function App() {
   return (
     <>
-      <Toaster 
-        position="top-center" 
+      <Toaster
+        position="top-center"
         toastOptions={{
           style: {
             background: 'var(--bg-secondary)',
@@ -36,7 +36,7 @@ function App() {
           error: {
             iconTheme: { primary: '#ff3333', secondary: '#ffffff' },
           }
-        }} 
+        }}
       />
       <NavBar />
       <GlobalNav />
@@ -66,7 +66,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         {/* 🛒 CHECKOUT */}
-       <Route path="/checkout" element={<CheckoutForm />} />
+        <Route path="/checkout" element={<CheckoutForm />} />
 
         {/* Auth & Perfil */}
         <Route path="/login" element={<Login />} />
