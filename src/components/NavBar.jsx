@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import CartWidget from "./CartWidget.jsx";
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import logoImage from "../assets/logo1.png";
 
 function NavBar() {
   const [theme, setTheme] = useState("dark");
@@ -25,7 +24,7 @@ function NavBar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={logoImage} alt="Logo" style={{ height: '80px', objectFit: 'contain' }} />
+          <img src={theme === "dark" ? "/LG-BLANCO-SNFNDO.png" : "/LG-NEGRO-SNFNDO.png"} alt="Logo" style={{ height: '80px', objectFit: 'contain' }} />
         </Link>
       </div>
 
