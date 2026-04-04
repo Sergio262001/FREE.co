@@ -45,7 +45,7 @@ function NavBar() {
         </li>
       </ul>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+      <div className="navbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
         <button
           onClick={toggleTheme}
           style={{
