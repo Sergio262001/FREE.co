@@ -54,7 +54,7 @@ function NavBar() {
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
           </a>
           <a href="#" aria-label="WhatsApp" style={{ display: 'flex', color: 'inherit' }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><path d="M9.4 10.3l1.8-1.8c.3-.3.8-.3 1.1 0l2.3 2.3c.3.3.3.8 0 1.1l-1 1c-.2.2-.3.6-.2.9.3.9 1 1.6 1.9 1.9.3.1.7 0 .9-.2l1-1c.3-.3.8-.3 1.1 0l2.3 2.3c.3.3.3.8 0 1.1l-1.8 1.8c-.8.8-2 1.2-3.2 1C11.5 19.4 6.7 14.6 6.3 10.3c-.2-1.2.2-2.4 1-3.2L9.1 5.3c.3-.3.8-.3 1.1 0l2.3 2.3c.3.3.3.8 0 1.1l-1 1c-.2.2-.3.6-.2.9.3.9 1 1.6 1.9 1.9.3.1.7 0 .9-.2"></path></svg>
+            <svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" strokeWidth="24" strokeLinecap="round" strokeLinejoin="round"><path d="M84.2,216.5A103.8,103.8,0,0,1,128,224c57.4,0,104-46.6,104-104S185.4,16,128,16,24,62.6,24,120A101.5,101.5,0,0,0,36,170.6L24.6,218.4a7.9,7.9,0,0,0,9.7,9.7Z"></path><path d="M92.5,84.5l8.7,8.7a16.1,16.1,0,0,1,1.5,21.3l-10,12.5a69.5,69.5,0,0,0,34.4,34.4l12.5-10a16.1,16.1,0,0,1,21.3,1.5l8.7,8.7a16,16,0,0,1,1,21.8l-7.7,8.6a32.1,32.1,0,0,1-32,8A112.1,112.1,0,0,1,49.2,118.3a32.1,32.1,0,0,1,8-32.1l8.6-7.7A16,16,0,0,1,92.5,84.5Z"></path></svg>
           </a>
         </div>
         <button
