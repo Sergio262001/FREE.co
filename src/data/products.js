@@ -11,8 +11,8 @@ export const products = [
     category: "colecciones",
     img: Camiseta1,
     images: [Camiseta1, Camiseta2, Camiseta3],
-    model3d: "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-    description: "Oversize, cómoda y fácil de combinar. (Con Vista 3D de demo)",
+    model3d: "/models/Alienojodepez.glb",
+    description: "Oversize, cómoda y fácil de combinar. (Vista 3D disponible)",
     stock: 8,
   },
   {
