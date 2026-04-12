@@ -6,10 +6,13 @@ function ShirtCard({ shirt }) {
   const [isHovered, setIsHovered] = useState(false);
 
   // Decide which image to show
-  const productImages = shirt?.images && shirt.images.length > 1
-    ? shirt.images
-    : [shirt.img, "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=800"];
-  const displayImage = isHovered && productImages.length > 1 ? productImages[1] : productImages[0];
+  const productImages = [shirt.img];
+  if (shirt.img2) {
+    productImages.push(shirt.img2);
+  } else if (shirt?.images && shirt.images.length > 1) {
+    productImages.push(shirt.images[1]);
+  }
+
 
   return (
     <motion.article

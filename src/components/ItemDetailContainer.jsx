@@ -23,20 +23,19 @@ function ItemDetailContainer() {
           setError("Producto no encontrado.");
           setItem(null);
         } else {
-          // --- DATOS DE PRUEBA (DUMMY) PARA DEMOSTRACIÓN ---
-          // Si el producto en Firebase no tiene 'images', le agregamos unas de prueba
-          const mockImages = [
-            data.img,
-            "https://picsum.photos/400/500?random=" + data.id + "1",
-            "https://picsum.photos/400/500?random=" + data.id + "2"
-          ];
-          // Si no tiene 'model3d', le ponemos el astronauta de prueba
-          const mockModel = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
+          // Formamos el arreglo de imágenes reales a mostrar (img + img2)
+          const realImages = [data.img];
+          if (data.img2) {
+            realImages.push(data.img2);
+          } else if (data.images && data.images.length > 1) {
+            realImages.push(...data.images.slice(1));
+          }
 
+          // Si no tiene 'model3d', no simulamos nada
           setItem({
             ...data,
-            images: data.images || mockImages,
-            model3d: data.model3d || mockModel
+            images: realImages,
+            model3d: data.model3d || null
           });
         }
       })
