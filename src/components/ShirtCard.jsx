@@ -6,7 +6,7 @@ function ShirtCard({ shirt }) {
   const [isHovered, setIsHovered] = useState(false);
 
   // Función para limpiar comillas accidentales
-  const cleanUrl = (url) => url ? url.replace(/^["']|["']$/g, '') : url;
+  const cleanUrl = (url) => (typeof url === 'string') ? url.replace(/^["']|["']$/g, '') : url;
 
   // Decide which image to show
   const productImages = [];

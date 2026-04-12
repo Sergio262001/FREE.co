@@ -24,7 +24,7 @@ function ItemDetailContainer() {
           setItem(null);
         } else {
           // Función para limpiar comillas accidentales
-          const cleanUrl = (url) => url ? url.replace(/^["']|["']$/g, '') : url;
+          const cleanUrl = (url) => (typeof url === 'string') ? url.replace(/^["']|["']$/g, '') : url;
 
           // Formamos el arreglo de imágenes reales a mostrar (img + img2)
           const realImages = [];
