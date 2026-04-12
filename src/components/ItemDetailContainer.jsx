@@ -28,17 +28,26 @@ function ItemDetailContainer() {
 
           // Formamos el arreglo de imágenes reales a mostrar (img + img2)
           const realImages = [];
-          if (data.img) realImages.push(cleanUrl(data.img));
+          
+          if (Array.isArray(data.img)) {
+            realImages.push(...data.img.map(cleanUrl));
+          } else if (data.img) {
+            realImages.push(cleanUrl(data.img));
+          }
+
           if (data.img2) {
             realImages.push(cleanUrl(data.img2));
-          } else if (data.images && data.images.length > 1) {
+          } else if (data.images && data.images.length > 1 && !Array.isArray(data.img)) {
             realImages.push(...data.images.slice(1).map(cleanUrl));
           }
+
+          // Obtenemos la imagen principal real (string) para el detalle
+          const mainImgString = Array.isArray(data.img) && data.img.length > 0 ? data.img[0] : data.img;
 
           // Si no tiene 'model3d', no simulamos nada
           setItem({
             ...data,
-            img: cleanUrl(data.img),
+            img: cleanUrl(mainImgString),
             images: realImages,
             model3d: cleanUrl(data.model3d) || null
           });

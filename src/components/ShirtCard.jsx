@@ -10,10 +10,16 @@ function ShirtCard({ shirt }) {
 
   // Decide which image to show
   const productImages = [];
-  if (shirt.img) productImages.push(cleanUrl(shirt.img));
+  
+  if (Array.isArray(shirt.img)) {
+    productImages.push(...shirt.img.map(cleanUrl));
+  } else if (shirt.img) {
+    productImages.push(cleanUrl(shirt.img));
+  }
+
   if (shirt.img2) {
     productImages.push(cleanUrl(shirt.img2));
-  } else if (shirt?.images && shirt.images.length > 1) {
+  } else if (shirt?.images && shirt.images.length > 1 && !Array.isArray(shirt.img)) {
     productImages.push(cleanUrl(shirt.images[1]));
   }
 
