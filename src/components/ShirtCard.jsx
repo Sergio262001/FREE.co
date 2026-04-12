@@ -5,13 +5,18 @@ import { useState } from "react";
 function ShirtCard({ shirt }) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Función para limpiar comillas accidentales
+  const cleanUrl = (url) => url ? url.replace(/^["']|["']$/g, '') : url;
+
   // Decide which image to show
-  const productImages = [shirt.img];
+  const productImages = [];
+  if (shirt.img) productImages.push(cleanUrl(shirt.img));
   if (shirt.img2) {
-    productImages.push(shirt.img2);
+    productImages.push(cleanUrl(shirt.img2));
   } else if (shirt?.images && shirt.images.length > 1) {
-    productImages.push(shirt.images[1]);
+    productImages.push(cleanUrl(shirt.images[1]));
   }
+
 
 
   return (

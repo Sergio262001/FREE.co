@@ -23,19 +23,24 @@ function ItemDetailContainer() {
           setError("Producto no encontrado.");
           setItem(null);
         } else {
+          // Función para limpiar comillas accidentales
+          const cleanUrl = (url) => url ? url.replace(/^["']|["']$/g, '') : url;
+
           // Formamos el arreglo de imágenes reales a mostrar (img + img2)
-          const realImages = [data.img];
+          const realImages = [];
+          if (data.img) realImages.push(cleanUrl(data.img));
           if (data.img2) {
-            realImages.push(data.img2);
+            realImages.push(cleanUrl(data.img2));
           } else if (data.images && data.images.length > 1) {
-            realImages.push(...data.images.slice(1));
+            realImages.push(...data.images.slice(1).map(cleanUrl));
           }
 
           // Si no tiene 'model3d', no simulamos nada
           setItem({
             ...data,
+            img: cleanUrl(data.img),
             images: realImages,
-            model3d: data.model3d || null
+            model3d: cleanUrl(data.model3d) || null
           });
         }
       })
